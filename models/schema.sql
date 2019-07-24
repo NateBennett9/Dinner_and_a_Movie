@@ -1,0 +1,6 @@
+DROP DATABASE IF EXISTS dinner_and_movieDB;
+CREATE DATABASE dinner_and_movieDB;
+
+DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;
+

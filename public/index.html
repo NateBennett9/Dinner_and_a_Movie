@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="main.css" type="text/css" />
+<script type="text/javascript" src="../node_modules\winwheel\dist\Winwheel.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+    <section id="irju">
+        <header class="header3">
+            <div id="imahj" class="container">
+                <div data-columns="1" data-gjs="navbar" id="i3ch8" class="row">
+                    <div data-column="1" id="ikpx6" class="cell"><a href="##" id="iqj7y"><svg viewBox="0 0 500 500"
+                                id="i19xt">
+                                <defs>
+                                    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+                                        <stop stop-color="#EAB3D5" offset="0%"></stop>
+                                        <stop stop-color="#D06E9A" offset="100%"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" id="imvsp">
+                                    <g>
+                                        <circle fill="#FFFFFF" cx="251" cy="251" r="250"></circle>
+                                        <path
+                                            d="M244.664082,104.558858 L162.460627,248.205767 C145.186418,278.574619 143.852224,317.189676 162.460627,349.706818 C190.433829,398.588565 252.659,415.493783 301.444357,387.464755 C350.229714,359.436081 367.101474,297.087868 339.127919,248.205413 L256.924464,104.558858 C254.209082,99.813714 247.379111,99.813714 244.664082,104.558858 Z"
+                                            fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </svg><span class="brand-name">Dinner &amp; A Movie</span></a>
+                        <div id="iy7hy" class="burger">
+                            <div class="burger-line"></div>
+                            <div class="burger-line"></div>
+                            <div class="burger-line"></div>
+                        </div>
+                    </div>
+                    <div data-column="1" id="iir1r" class="cell">
+                        <div data-gjs="navbar-items" class="menu-container">
+                            <nav data-gjs="navs" class="menu"><a href="index.html" class="menu-link">Home</a><a
+                                    href="about.html" class="menu-link">About</a><a href="login.html"
+                                    class="menu-link">Log In</a></nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="i5c3" class="container">
+            <h1 id="im2ty" class="header__title">Randomize Your Evening</h1>
+            <div id="ikesp" class="header__subtitle">No idea what you are going to do night? How about taking a spin on
+                our dinner and a&nbsp;<br>movie randomizer app. Log in to begin to get a idea on location and spin the
+                wheel to&nbsp;<br>figure out what the internet thinks you should have for dinner tonight and what
+                movie<br>​​​​​​​you should watch!<br></div><a href="login.html" class="button1">
+                Log In to Begin</a>
+        </div>
+    </section>
+    <section id="ida1tj">
+        <div id="iksd5l" class="container">
+            <h1 id="itynsj">Spin the Wheel!<br></h1>
+            <div id="iryzn9">Click the 'Spin" Button to Spin the Wheel</div>
+            <!-- wheel code-->
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td>
+                        <div>
+                            <br />
+                            <br />
+                            <img id="spin_button" src="spin_on.png" alt="Spin" onClick="startSpin()" />
+                            <br /><br />
+                            <a href="#" onClick="resetWheel(); return false;">Play Again</a>
+                        </div>
+                    </td>
+                    <td width="438" height="582" class="the_wheel" align="center" valign="center">
+                        <canvas id="canvas1" width="434" height="434">
+                        </canvas>
+                    </td>
+                    <td>
+                        <div>
+                            <br />
+                            <br />
+                            <img id="spin_button99" src="spin_on99.png" alt="Spin99" onClick="startSpin99()" />
+                            <br /><br />
+                            <a href="#" onClick="resetWheel99(); return false;">Play Again</a>
+                        </div>
+                    </td>
+                    <td width="438" height="582" class="the_wheel2" align="center" valign="center">
+                        <canvas id="canvas2" width="434" height="434">
+                        </canvas>
+                    </td>
+                </tr>
+            </table>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <!-- The scope attribute specifies that this is a header for a column -->
+                                            <th scope="col">Dinner Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="dinner">
+                                        <tr>
+                                            <td>Pagliacci Pizza</td>
+                                        </tr>
+                                        <!-- Insert additional movie rows here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <!-- The scope attribute specifies that this is a header for a column -->
+                                            <th scope="col">Movie Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="movie">
+                                        <tr>
+                                            <td>Interstellar</td>
+                                        </tr>
+                                        <!-- Insert additional movie rows here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <footer class="footer">
+                <div class="container">
+                    <div data-columns="1" class="row">
+                        <div data-column="1" id="il1wwf" class="cell">
+                            <h2 class="section__title">FOLLOW US</h2>
+                            <div class="footer-socials"><a href="##" target="_blank" class="footer-link-svg"><svg
+                                        viewBox="0 0 430.1 430.1" width="100%" height="100%" id="idyf0v">
+                                        <path
+                                            d="M158.1 83.3c0 10.8 0 59.2 0 59.2h-43.4v72.4h43.4v215.2h89.1V214.9h59.8c0 0 5.6-34.7 8.3-72.7 -7.8 0-67.8 0-67.8 0s0-42.1 0-49.5c0-7.4 9.7-17.4 19.3-17.4 9.6 0 29.8 0 48.6 0 0-9.9 0-43.9 0-75.4 -25 0-53.5 0-66 0C155.9 0 158.1 72.5 158.1 83.3z">
+                                        </path>
+                                    </svg></a><a href="##" target="_blank" class="footer-link-svg"><svg
+                                        viewBox="0 0 32 28" width="100%" height="100%" id="icuse9">
+                                        <path
+                                            d="M32 4.8c-1.2.5-2.4.8-3.8 1 1.4-.7 2.4-1.9 2.9-3.4-1.3.7-2.7 1.2-4.2 1.5-1.2-1.2-2.9-1.9-4.7-1.9-3.6 0-6.6 2.7-6.6 6.1 0 .5.1.9.2 1.4-5.5-.3-10.3-2.7-13.6-6.4-.5.9-.9 1.9-.9 3.1 0 2.1 1.2 4 2.9 5-1.1 0-2.1-.3-3-.8v.1c0 2.9 2.3 5.4 5.3 5.9-.6.1-1.1.2-1.7.2-.4 0-.8 0-1.2-.1.8 2.4 3.3 4.2 6.1 4.2-2.2 1.6-5.1 2.6-8.2 2.6-.5 0-1.1 0-1.6-.1 3 1.8 6.5 2.8 10.2 2.8 12.1 0 18.7-9.2 18.7-17.2v-.8c1.2-.9 2.3-1.9 3.2-3.2z">
+                                        </path>
+                                    </svg></a><a href="##" target="_blank" class="footer-link-svg"><svg
+                                        viewBox="0 0 32 28" width="100%" height="100%" id="i0n2lh">
+                                        <path
+                                            d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z">
+                                        </path>
+                                    </svg></a><a href="##" target="_blank" class="footer-link-svg"><svg
+                                        viewBox="0 0 32 28" width="100%" height="100%" id="incv49">
+                                        <path
+                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+                                        </path>
+                                    </svg></a><a href="##" target="_blank" class="footer-link-svg"><svg
+                                        viewBox="0 0 32 28" width="100%" height="100%" id="it5ken">
+                                        <path
+                                            d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z">
+                                        </path>
+                                    </svg></a><a href="##" target="_blank" class="footer-link-svg"><svg
+                                        viewBox="0 0 32 28" width="100%" height="100%" id="i3udm1">
+                                        <path
+                                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
+                                        </path>
+                                    </svg></a></div>
+                        </div>
+                    </div>
+                    <div class="footer-copyright">© Sam Cotter Nick Bever and Nate Bennett. All Rights Reserved
+                    </div>
+                </div>
+            </footer>
+            <script>var items = document.querySelectorAll('#iy7hy');
+                for (var i = 0, len = items.length; i < len; i++) {
+                    (function () { var e, n = 0, a = function () { var e, n = document.createElement("void"), a = { transition: "transitionend", OTransition: "oTransitionEnd", MozTransition: "transitionend", WebkitTransition: "webkitTransitionEnd" }; for (e in a) if (void 0 !== n.style[e]) return a[e] }(), t = function (e) { var n = window.getComputedStyle(e), a = n.display, t = (n.position, n.visibility, n.height, parseInt(n["max-height"])); if ("none" !== a && "0" !== t) return e.offsetHeight; e.style.height = "auto", e.style.display = "block", e.style.position = "absolute", e.style.visibility = "hidden"; var r = e.offsetHeight; return e.style.height = "", e.style.display = "", e.style.position = "", e.style.visibility = "", r }, r = function (e) { n = 1; var a = t(e), r = e.style; r.display = "block", r.transition = "max-height 0.25s ease-in-out", r.overflowY = "hidden", "" == r["max-height"] && (r["max-height"] = 0), 0 == parseInt(r["max-height"]) ? (r["max-height"] = "0", setTimeout(function () { r["max-height"] = a + "px" }, 10)) : r["max-height"] = "0" }, i = function (t) { if (t.preventDefault(), !n) { var i = this.closest("[data-gjs=navbar]"), l = i.querySelector("[data-gjs=navbar-items]"); r(l), e || (l.addEventListener(a, function () { n = 0; var e = l.style; 0 == parseInt(e["max-height"]) && (e.display = "", e["max-height"] = "") }), e = 1) } }; "gjs-collapse" in this || this.addEventListener("click", i), this["gjs-collapse"] = 1 }.bind(items[i]))();
+                }</script>
+
+
+            <style>
+                a.page-brand-badge {
+                    border-radius: 3px !important;
+                    background-color: white !important;
+                    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+                    padding: 5px 7px !important;
+                    font-family: Helvetica, sans-serif !important;
+                    font-size: 12px !important;
+                    text-decoration: none !important;
+                    color: #555 !important;
+                    transition: box-shadow 0.25s !important;
+                }
+
+                a.page-brand-badge:hover {
+                    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.1);
+                }
+            </style>
+
+</body>
+
+<script>
+    var formStateName = 'data-form-state';
+    var formStateEls = $('[' + formStateName + ']');
+    formStateEls.hide();
+    $('form').submit(function (e) {
+        e.preventDefault();
+        var form = $(this);
+        var action = (this.getAttribute('action') || '').trim();
+        var formData = new FormData(this);
+        var chkSelected = {};
+        var name = this.getAttribute('name');
+        name && formData.append('__name', name);
+
+        form.find('[type=radio], [type=checkbox]').each(function (item) {
+            var chkName = this.name;
+            if (this.checked) {
+                chkSelected[chkName] = 1;
+                return;
+            }
+            chkSelected[chkName] = 0;
+        });
+
+        for (var chk in chkSelected) {
+            if (!chkSelected[chk]) {
+                formData.append(chk, '');
+            }
+        }
+
+        $.ajax({
+            url: action,
+            method: 'POST',
+            processData: false,
+            contentType: false,
+            data: formData,
+        }).done(function (data) {
+            formStateEls.hide();
+            form.find('> *').fadeOut();
+            form.find('[' + formStateName + '=success]').stop(1).fadeIn();
+        }).fail(function (data) {
+            formStateEls.hide();
+            form.find('[' + formStateName + '=error]').stop(1).fadeIn().delay(3000).fadeOut();
+        });
+    });
+</script>
+
+<script>
+    // Create new wheel object specifying the parameters at creation time.
+    let dinnerWheel = new Winwheel({
+        'canvasId': 'canvas1',
+        'numSegments': 8,                 // Specify number of segments.
+        'outerRadius': 200,               // Set outer radius so wheel fits inside the background.
+        'drawText': true,              // Code drawn text can be used with segment images.
+        'textFontSize': 18,
+        'textOrientation': 'curved',
+        'textAlignment': 'inner',
+        'textMargin': 170,
+        'textFontFamily': 'monospace',
+        'textStrokeStyle': 'white',
+        'textLineWidth': 3,
+        'textFillStyle': 'black',
+        'drawMode': 'segmentImage',    // Must be segmentImage to draw wheel using one image per segemnt.
+        'segments':                    // Define segments including image and text.
+            [
+                { 'image': 'Pizza.png', 'text': 'Pizza' },
+                { 'image': 'Burgers.png', 'text': 'Burgers' },
+                { 'image': 'Steakhouse.png', 'text': 'Steakhouse' },
+                { 'image': 'Italian.png', 'text': 'Italian' },
+                { 'image': 'Mexican.png', 'text': 'Mexican' },
+                { 'image': 'BBQ.png', 'text': 'BBQ' },
+                { 'image': 'Chinese.png', 'text': 'Chinese' },
+                { 'image': 'Seafood.png', 'text': 'Seafood' }
+            ],
+        'animation':           // Specify the animation to use.
+        {
+            'type': 'spinToStop',
+            'duration': 5,     // Duration in seconds.
+            'spins': 8,     // Number of complete spins.
+            'callbackFinished': 'alertPrize()'
+        }
+    });
+
+
+    let movieWheel = new Winwheel({
+        'canvasId': 'canvas2',
+        'numSegments': 8,                 // Specify number of segments.
+        'outerRadius': 200,               // Set outer radius so wheel fits inside the background.
+        'drawText': true,              // Code drawn text can be used with segment images.
+        'textFontSize': 18,
+        'textOrientation': 'curved',
+        'textAlignment': 'inner',
+        'textMargin': 170,
+        'textFontFamily': 'monospace',
+        'textStrokeStyle': 'white',
+        'textLineWidth': 3,
+        'textFillStyle': 'black',
+        'drawMode': 'segmentImage',    // Must be segmentImage to draw wheel using one image per segemnt.
+        'segments':                    // Define segments including image and text.
+            [
+                { 'image': '1365.png', 'text': 'Action' },
+                { 'image': '6548.png', 'text': 'Comedy' },
+                { 'image': '5763.png', 'text': 'Drama' },
+                { 'image': '1492.png', 'text': 'Fantasy' },
+                { 'image': '8711.png', 'text': 'Horror' },
+                { 'image': '6839.png', 'text': 'Musical' },
+                { 'image': '8933.png', 'text': 'Thriller' },
+                { 'image': '8883.png', 'text': 'Western' }
+            ],
+        'animation':           // Specify the animation to use.
+        {
+            'type': 'spinToStop',
+            'duration': 5,     // Duration in seconds.
+            'spins': 8,     // Number of complete spins.
+            'callbackFinished': 'alertPrize99()'
+        }
+    });
+
+    // Vars used by the code in this page to do power controls.
+    let wheelSpinning = false;
+
+    // -------------------------------------------------------
+    // Click handler for spin button.
+    // -------------------------------------------------------
+    function startSpin() {
+        // Ensure that spinning can't be clicked again while already running.
+        if (wheelSpinning == false) {
+            dinnerWheel.startAnimation();
+            wheelSpinning = true;
+        }
+    }
+
+    function startSpin99() {
+        // Ensure that spinning can't be clicked again while already running
+        // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+        // to rotate with the duration of the animation the quicker the wheel spins.
+        // Begin the spin animation by calling startAnimation on the wheel object.
+        movieWheel.startAnimation()
+
+    }
+
+    function resetWheel() {
+        dinnerWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+        dinnerWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+        dinnerWheel.draw();                // Call draw to render changes to the wheel.
+
+        wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+    }
+
+    function resetWheel99() {
+        movieWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+        movieWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+        movieWheel.draw();
+
+        wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+    }
+
+    function alertPrize() {
+        // Get the segment indicated by the pointer on the wheel background which is at 0 degrees.
+        var winningSegment = dinnerWheel.getIndicatedSegment();
+        console.log(winningSegment);
+        console.log(winningSegment.image.slice(0, -4));
+
+        var myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=Seattle&categories=" + winningSegment.text.toLowerCase();
+        console.log(winningSegment.text);
+        console.log(myurl);
+        const x = Math.floor(Math.random() *5);
+
+        var timeout = function () {
+            $.ajax({
+                url: myurl,
+                headers: {
+                    'Authorization': 'Bearer 18DH8r28FEUJwr6hOcm5V8xMjrbHpLCfMg1Zp0T_N65S4sJfrhguMmC6JccNZHK0GiGXK05xPcWziGkUF-GBLbKqCklnalVxvk1sp9GmYpAGU_nZtEY2WkjYysErXXYx',
+                },
+                method: 'GET',
+                dataType: 'json',
+
+            }).done(function (response) {
+                console.log(response.businesses[x].name);
+                alert(response.businesses[x].name);
+                var tRow = $("<tr>");
+
+                // Methods run on jQuery selectors return the selector they we run on
+                // This is why we can create and save a reference to a td in the same statement we update its text
+                var titleTd = $("<td>").text(response.businesses[x].name);
+
+                // Append the newly created table data to the table row
+                tRow.append(titleTd);
+                // Append the table row to the table body
+                $(".dinner").append(tRow);
+
+            });
+        };
+        setTimeout(timeout, 500);
+    }
+
+
+    function alertPrize99() {
+        // Get the segment indicated by the pointer on the wheel background which is at 0 degrees.
+        var winningSegment = movieWheel.getIndicatedSegment();
+        console.log(winningSegment);
+        console.log(winningSegment.image.slice(0, -4));
+
+        var myurl = "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi?q=get-!1900,2019-!0,5-!0,10-!" + winningSegment.image.slice(0, -4) + "-!movie-!Any-!Any-!gt100-!{downloadable}&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and";
+        console.log(winningSegment.text);
+        console.log(myurl);
+        const x = Math.floor(Math.random() *5);
+
+        var timeout = function () {
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                url: myurl,
+                "method": "GET",
+                "headers": {
+                    "X-RapidAPI-Host": "unogs-unogs-v1.p.rapidapi.com",
+                    "X-RapidAPI-Key": "469b7a86bamshfb892b6008ab1cdp1d07dfjsna9688aff90cf",
+                    "Accept": "*/*",
+                    "Cache-Control": "no-cache",
+                    "Postman-Token": "1d1ae82f-4850-48a8-bc99-51f7b6499a6c,92f4e78a-c008-4315-ad7b-a88517ab24ea",
+                    "cache-control": "no-cache"
+                }
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response.ITEMS[x].title);
+                alert(response.ITEMS[x].title);
+
+                var tRow = $("<tr>");
+
+                // Methods run on jQuery selectors return the selector they we run on
+                // This is why we can create and save a reference to a td in the same statement we update its text
+                var titleTd = $("<td>").text(response.ITEMS[x].title);
+
+                // Append the newly created table data to the table row
+                tRow.append(titleTd);
+                // Append the table row to the table body
+                $(".movie").append(tRow);
+
+            });
+        };
+        setTimeout(timeout, 500);
+    }
+
+</script>
+
+</html>
