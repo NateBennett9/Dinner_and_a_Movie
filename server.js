@@ -5,10 +5,10 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -22,11 +22,11 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/movies-api-routes")(app);
-require("./routes/restaurants-api-routes")(app);
-require("./routes/dates-api-routes")(app);
-require("./routes/users-api-routes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/movies-api-routes.js")(app);
+require("./routes/restaurants-api-routes.js")(app);
+require("./routes/dates-api-routes.js")(app);
+require("./routes/users-api-routes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 var syncOptions = { force: false };
 
